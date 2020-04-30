@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<title>COVID-19</title>
+		<style>
+			#landing h1{
+				text-align:center;
+				font-size:500%;
+				padding:8%;
+				color:black;
+				}
+			#landing p{
+				width:100%;
+				font-size:200%;
+				padding-bottom:5%;
+				padding-left:3%;
+				color:white;
+				}
+			#landing img{
+				width:20%;
+				float:right;
+				}
+			#button1{
+				position:absolute;
+				top:2%;
+				right:9%;
+				}
+			#button2{
+				position:absolute;
+				top:2%;
+				right:2%;
+				}
+			#landing{
+				background-image:linear-gradient(#151616,#03FADA);
+				}
+			#precautions{
+				border-style:solid;
+				width:80%;
+				margin-left:10%;
+				padding:2%;
+				text-align:center;
+				margin-bottom:3.5%;
+				}
+			#precautions p{
+				font-size:150%;
+				}
+			#change_colour{
+				color:red;
+				}
+			#Your_track h1{
+				text-align : center;
+				}
+			#Your_track p{
+			padding:2%;
+			font-size:150%;
+			}
+			.container {
+				display: block;
+				position: relative;
+				padding-left: 3%;
+				cursor: pointer;
+				font-size: 100%;
+			}
+			.container input {
+				opacity: 0;
+				height: 0;
+				width: 0;
+			}
+			.checkmark {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 80%;
+				width: 2.5%;
+				background-color: #eee;
+			}
+			.container:hover input ~ .checkmark {
+				background-color: #ccc;
+			}
+			.container input:checked ~ .checkmark {
+				background-color: #2196F3;
+			}
+            .checkmark:after {
+				content: "";
+				position: absolute;
+				display: none;
+            }
+			.container input:checked ~ .checkmark:after {
+				display: block;
+			}
+			.container .checkmark:after {
+				left: 35%;
+				top: 25%;
+				width: 30%;
+				height: 60%;
+				border: solid white;
+				border-width: 0 3px 3px 0;
+				-webkit-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				transform: rotate(45deg);
+			}
+			#output{
+				color:black;
+				font-weight:bold;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="landing">
+		<h1>
+		 Coronavirus (Covid-19)
+		</h1>
+		<p><img src="https://fyi.extension.wisc.edu/safefood/files/2020/03/sars-cov-19.jpg">
+			Coronavirus is a major threat these days. As the vaccine to this virus is yet to be discovered, the main focus of the government and people is to prevent it from spreading.
+			<br/>So here are the main steps you can take to do your part in the prevention of spreading of this virus. Using this website you can also check what is the percentage of your input.
+		</p>
+		<a href="#precautions" role="button" class="btn btn-outline-light" id="button1">Precautions</a>
+		<a href="#Your_track" role="button" class="btn btn-outline-light" id="button2">Your Score</a>
+		</div>
+		<div id="precautions">
+			<h1>Social Distancing</h1>
+			<p> Stay at your homes and even if you have to go out for some emergency or necessity, stay at a safe distance of atleast 6 feet (about 2 arm's length) from other people. Avoid direct or
+			indirect contact as long as possible</p>
+			<h1>Wash Your Hands Frequently</h1>
+			<p> It is very essential to wash your hands for atleast 20s every time after you touch any kind of foreign surface. It will prevent the virus which may have landed on your hand from such surfces
+			from entering you.</p>
+			<h1>Do not touch your face, nose or mouth</h1>
+			<p>Prevent touching your face, nose or mouth as it may allow the virus to enter your body </p>
+			<h1>Cover Your Cough</h1>
+			<p>Cover your cough and sneeze preferably with your elbow and not with your hands as it will prevent the transmission of germs (or virus) from your hands to those of others.</p>
+			<h1 id="change_colour">In case of any symptom consult your doctor immediately</h1>
+		</div>
+		<div id = "Your_track">
+			<h1>How Effectively Are You Fighting With Corona</h1>
+			<p>
+			<label class="container">I am effectively following social distancing. <input type="checkbox" id="myCheck1"><span class="checkmark"></span></label>
+			<label class="container">I wash my hands atleast 20 times a day. <input type="checkbox" id="myCheck2"><span class="checkmark"></span></label>
+			<label class="container">I prevent from touching my face, nose or mouth. <input type="checkbox" id="myCheck3"><span class="checkmark"></span></label>
+			<label class="container">I cover my cough with my elbow. <input type="checkbox" id="myCheck4"><span class="checkmark"></span></label>
+			Hit the submit button after checking all the applicable boxes.</br>
+			<button onclick="myFunction()">Submit</button>
+			</p>
+			<p id="output"></p>
+			<script>
+				function myFunction() {
+				var x1 = document.getElementById("myCheck1");
+				var x2 = document.getElementById("myCheck2");
+				var x3 = document.getElementById("myCheck3");
+				var x4 = document.getElementById("myCheck4");
+				var sum = 0;
+				if(x1.checked == true)
+				{
+					sum = sum + 1;
+				}
+				if(x2.checked == true)
+				{
+					sum = sum +1;
+				}
+				if(x3.checked == true)
+				{
+					sum = sum +1;
+				}
+				if(x4.checked == true)
+				{
+					sum = sum +1;
+				}
+				ans = sum * 100 /4 + "%";
+				document.getElementById("output").innerHTML ="Your Score is "+ans;
+				}	
+</script>
+		</div>
+	</body>
+</html>
